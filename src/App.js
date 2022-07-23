@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import Formulario from "./components/Formulario";
+import { useState, useEffect } from "react";
 
 function App() {
+
+  let tareasIniciales = JSON.parse(localStorage.getItem("tareas"));
+  if(!tareasIniciales){
+    tareasIniciales = [];
+  }
+
+  useEffect(() => {
+    if(tareasIniciales === null){
+      localStorage.setItem("tareas", JSON.stringify([]))
+    }else{
+      localStorage.setItem("tareas", JSON.stringify(tareas))
+    }
+  })
+
+  const [tareas, actualizarTareas] = useState(tareasIniciales);
+
+  const crearTarea = tarea => actualizarTareas([...tareas, tarea]);
+
+  const eliminarTarea = id => {
+    const tarea = tareas.filter(tarea => tarea.id !== id);
+    actualizarTareas(tarea);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <Formulario tareas={tareas} crearTarea={crearTarea} eliminarTarea={eliminarTarea} />
     </div>
   );
 }

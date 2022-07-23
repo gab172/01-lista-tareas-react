@@ -1,13 +1,73 @@
-body {
+*{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body{
+  font-family: 'Roboto', sans-serif;
+}
+
+li{
+  display: inline-block;
+}
+
+.container{
+  width: 90%;
+  margin: 10rem auto;
+}
+
+.form{
+  margin: 0 auto;
+  width: 80%;
+  background-color: #ccc;
+  border-radius: 5px;
+  padding: 2rem;
+}
+
+.form__input{
+  padding: 1rem;
+  border: none;
+  margin-bottom: 1rem;
+  width: 100%;
+  outline: none;
+}
+
+.form__btn{
+  width: 100%;
+  padding: .6rem;
+  color: #fff;
+  font-weight: 900;
+  background-color: #42c5f5;
+  border: none;
+  margin-bottom: 2rem;
+}
+
+.container-tarea{
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 1rem;
+  list-style: none;
+}
+
+.tarea{
+  margin: 2rem 0;
+  border-bottom: 1px solid #ccc;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.tarea__item{
+  color: #42c5f5;
+}
+
+.tarea__delete{
+  color: red;
+}
+
+@media (min-width: 720px){
+  .form{
+    width: 60%;
+  }
 }
